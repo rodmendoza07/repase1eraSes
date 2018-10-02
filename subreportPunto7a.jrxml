@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportPunto7a" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5a19fa79-0ccb-4a1b-ba97-967e425244cd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT
+	CASE
+		WHEN pr.CALENDARIO_ELEGIDO = 1 THEN '185 días ( X )  195 días( )'
+		WHEN pr.CALENDARIO_ELEGIDO = 2 THEN '185 días ( )  195 días( X )'
+		ELSE '-----'
+	END AS CALENDARIO_ELEGIDO
+	, CASE
+		WHEN pr.PRESENTO_PLANTILLA = 1 THEN 'SI ( X )  NO ( )'
+		WHEN pr.PRESENTO_PLANTILLA = 2 THEN 'SI ( )  NO ( X )'
+		ELSE '-----'
+	END AS PRESENTO_PLANTILLA
+	, CASE
+		WHEN pr.OPINION_CALENDARIO = 1 THEN 'SI ( X )  NO ( )'
+		WHEN pr.OPINION_CALENDARIO = 2 THEN 'SI ( )  NO ( X )'
+		ELSE '-----'
+	END AS OPINION_CALENDARIO
+FROM TRE005_IG_P_S pr
+WHERE pr.ID_PRINCIPAL =  $P{id_principal}]]>
+	</queryString>
+	<field name="CALENDARIO_ELEGIDO" class="java.lang.String"/>
+	<field name="PRESENTO_PLANTILLA" class="java.lang.String"/>
+	<field name="OPINION_CALENDARIO" class="java.lang.String"/>
+	<detail>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="582" height="20" uuid="ce9b4829-a47a-40e2-8bb7-2b06f8a43135"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[¿El consejo escolar opinó sobre el calendario escolar que elegiría la escuela?]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="20" width="582" height="20" uuid="1d670090-c45a-4e33-9e3c-8ae7040053fa"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OPINION_CALENDARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="582" height="20" uuid="b9a4639b-c7e5-4af0-b614-39bfedcbfcd8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Su escuela eligió el calendario escolar de: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="60" width="582" height="20" uuid="35ddace0-a6aa-4f54-ba6a-887dc8f631cc"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CALENDARIO_ELEGIDO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="582" height="20" uuid="662d5a52-a1e1-4d26-ba6c-27e813a6d948"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[¿El directivo presentó a la comunidad escolar la plantilla de personal docente y administrativo?]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="100" width="582" height="20" uuid="6942bde1-cd2f-436a-9479-946abe667b24"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRESENTO_PLANTILLA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportePFederales" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3bd4047c-c6ff-45a3-b2ae-6e204019e743">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\luis.mendoza\\OneDrive - Secretaría de Educación Pública\\repase1era\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	NVL(cp.PROGRAMA, '-----') AS PROGRAMA
+	, NVL(tp.TIPO_PROGRAMA, '-----') AS TIPOPROGRMA
+	, NVL(op.META, '-----') AS meta
+	, NVL(co.OBJETIVO,'-----') AS objetivo
+	, NVL(cp.OBJETIVO_GENERAL, '-----') AS objetivoGeneral
+	, NVL(TO_CHAR(p.RECURSO), '-----') AS RECURSO
+	, NVL(p.RECURSO_LETRA, '-----') AS RECURSO_LETRA
+	, NVL(TO_CHAR(p.ID_PROGRAMA), '-----') AS idPrograma
+FROM TRE013_PROGRAMAS p
+	INNER JOIN TRE014_CAT_PROGRAMAS cp ON (p.ID_PROGRAMA = cp.ID_PROGRAMA)
+	INNER JOIN TRE015_CAT_TIPOS_PROGRAMAS tp ON (p.ID_TIPO_PROGRAMA = tp.ID_TIPO_PROGRAMA)
+	LEFT JOIN TRE016_OBJETIVOS_PROGRAMAS op ON (p.ID_PRINCIPAL = op.ID_PRINCIPAL AND p.ID_PROGRAMA = op.ID_PROGRAMA)
+	LEFT JOIN TRE017_CAT_OBJETIVOS co ON (op.ID_OBJETIVO = co.ID_OBJETIVO)
+WHERE p.ID_TIPO_PROGRAMA = 0
+	AND p.ID_PRINCIPAL = $P{id_principal}]]>
+	</queryString>
+	<field name="PROGRAMA" class="java.lang.String"/>
+	<field name="TIPOPROGRMA" class="java.lang.String"/>
+	<field name="META" class="java.lang.String"/>
+	<field name="OBJETIVO" class="java.lang.String"/>
+	<field name="OBJETIVOGENERAL" class="java.lang.String"/>
+	<field name="RECURSO" class="java.lang.String"/>
+	<field name="RECURSO_LETRA" class="java.lang.String"/>
+	<field name="IDPROGRAMA" class="java.lang.String"/>
+	<columnHeader>
+		<band height="145" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="0" width="116" height="125" forecolor="#000000" backcolor="#CCCCCC" uuid="982fd3cf-b0d2-47af-9e5a-a9ebd0ca3b14"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DE PROGRAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="348" y="0" width="118" height="125" forecolor="#000000" backcolor="#CCCCCC" uuid="963c063a-a1ba-468a-ac2c-a2edf6f1da57"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[METAS DE LA ESCUELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="466" y="0" width="116" height="125" forecolor="#000000" backcolor="#CCCCCC" uuid="d90b417e-bf6c-46e7-9e0a-c55bef5c463f"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECURSO ASIGNADO PARA EJERCER EN EL PRESENTE CICLO ESCOLAR
+(Colocar Cantidad con número y letra)
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="116" y="0" width="116" height="125" forecolor="#000000" backcolor="#CCCCCC" uuid="ae189adc-a0de-4ffc-b022-71fb90457dad"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROGRAMA AL QUE SE INCORPORA LA ESCUELA
+(X)
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="232" y="0" width="116" height="125" forecolor="#000000" backcolor="#CCCCCC" uuid="6bbc0579-24a1-4e14-a187-58d34e8e2e2d"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBJETIVOS ESPECÍFICOS DEL PROGRAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="125" width="583" height="20" uuid="9b35fc9c-92c5-4032-9271-5be504efe594"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROGRAMAS FEDERALES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="330" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="116" height="330" uuid="76f0d5c1-0971-41f1-ad91-d9c0ace5fa81"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA["F." + $F{IDPROGRAMA} + " " + $F{PROGRAMA} + "\n" +$F{OBJETIVOGENERAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="0" width="116" height="330" uuid="bfb77bbf-3467-43e6-8dd4-3f8298a22e34"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["$" + $F{RECURSO} + "\n" + "( " + $F{RECURSO_LETRA} + " )"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="116" y="0" width="116" height="330" uuid="ab43aa63-37c1-4e02-8868-5ecaf4bcedc4"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[(  X )]]></text>
+			</staticText>
+			<line>
+				<reportElement x="232" y="328" width="234" height="2" uuid="9d540f85-9e22-45dd-8524-dcf5052a0341"/>
+			</line>
+			<subreport>
+				<reportElement x="232" y="0" width="234" height="110" uuid="3a414b32-cfaf-4a61-9cb0-b947e149a117"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_programa">
+					<subreportParameterExpression><![CDATA[$F{IDPROGRAMA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportF1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

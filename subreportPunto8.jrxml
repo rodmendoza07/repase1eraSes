@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportPunto8" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8551f505-0ba7-44a4-8db0-036f22c3e581">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/Users/horacio.sanchez/Desktop/repase1era/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	NVL(cc.COMITE, '-----') AS comite
+	, NVL(TO_CHAR(c.NUM_INTEGRANTES), '-----') AS NUM_INTEGRANTES
+	, CASE
+		WHEN c.PRESENTARON_PROGRAMA = 1 THEN 'SI'
+		WHEN c.PRESENTARON_PROGRAMA = 2 THEN 'NO'
+		ELSE '-----'
+	END AS PRESENTARON_PROGRAMA
+	, c.ID_COMITE
+FROM TRE022_COMITES c
+	INNER JOIN TRE023_CAT_COMITES cc ON (c.ID_COMITE = cc.ID_COMITE)
+WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
+	</queryString>
+	<field name="COMITE" class="java.lang.String"/>
+	<field name="NUM_INTEGRANTES" class="java.lang.String"/>
+	<field name="PRESENTARON_PROGRAMA" class="java.lang.String"/>
+	<field name="ID_COMITE" class="java.math.BigDecimal"/>
+	<columnHeader>
+		<band height="190" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="0" width="145" height="190" forecolor="#000000" backcolor="#CCCCCC" uuid="be66f977-006c-4c2e-9539-c9d8d0281ccd"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INTEGRACIÓN DE COMITÉS
+( X )
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="437" y="0" width="145" height="95" forecolor="#000000" backcolor="#CCCCCC" uuid="55981694-51c4-4828-9f74-0aa3f8203562"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACUERDOS DE LOS COMITÉS INTEGRADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="145" y="0" width="146" height="190" forecolor="#000000" backcolor="#CCCCCC" uuid="23fa5fc4-b722-4f92-9740-8f2eb7f399b1"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° DE INTEGRANTES DEL COMITÉ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="291" y="0" width="146" height="190" forecolor="#000000" backcolor="#CCCCCC" uuid="7ece68c3-cdc6-4fc6-bf20-8717d52feb65"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE Y CALIDAD DEL PRESIDENTE DEL COMITÉ
+1. Presidente del Consejo Escolar de Participación Social.
+2. Secretario Técnico del Consejo Escolar.
+3. Consejera madre de familia.
+4. Consejero padre de familia.
+5. Consejero representante de la Asociación de Padres de Familia, o agrupación equivalente.
+6. Consejero maestro.
+7. Consejero representante de la organización sindical.
+8. Consejero director (a) escolar
+9. Consejero miembro de la comunidad escolar.
+10. Consejero ex alumno.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="437" y="95" width="145" height="95" forecolor="#000000" backcolor="#CCCCCC" uuid="3f31e5a4-8785-46a6-b957-809c80aa832c"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.	Presentaron programa de actividades. ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="91">
+			<textField>
+				<reportElement x="0" y="0" width="145" height="90" uuid="6d4119c3-2a7f-4f5b-b26b-97d235283319"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{COMITE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="0" width="145" height="90" uuid="34ff07ca-b5d9-411d-a9c6-7b4c58567d85"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PRESENTARON_PROGRAMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="0" width="146" height="90" uuid="5afe4df7-52be-4b20-94c3-efcaee19f5af"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NUM_INTEGRANTES}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="291" y="0" width="146" height="90" uuid="338516b6-4bb8-4528-9a3d-e5e925c3e4a8"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_comite">
+					<subreportParameterExpression><![CDATA[$F{ID_COMITE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto8c.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="291" y="90" width="146" height="1" uuid="31ceac36-d7a9-4148-b00b-651ac5245a95"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

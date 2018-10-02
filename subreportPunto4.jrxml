@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportPunto4" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1343799e-e11c-4397-a0c5-1d3c29acb69e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT
+	NVL(c.NOMBRE, '-----') AS NOMBRE
+	, NVL(c.PRIMER_APELLIDO, '-----') AS PRIMERAPELLIDO
+	, nvl(c.SEGUNDO_APELLIDO, '-----') AS SEGUNDOAPELLIDO
+FROM TRE007_CONSEJEROS c
+	INNER JOIN TRE005_IG_P_S pr ON (c.ID_PRINCIPAL = pr.ID_PRINCIPAL)
+	INNER JOIN TRE009_CAT_CARGOS cc ON (c.ID_CARGO = cc.ID_CARGO AND c.ID_CARGO = 2)
+	INNER JOIN TRE006_CAT_GRADOS cg ON (c.ID_GRADO = cg.ID_GRADO)
+	INNER JOIN TRE010_CAT_FORMAS_ACREDITACION ac ON (c.ID_FORMA_ACREDITACION = ac.ID_FORMA_ACREDITACION)
+WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
+	</queryString>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="PRIMERAPELLIDO" class="java.lang.String"/>
+	<field name="SEGUNDOAPELLIDO" class="java.lang.String"/>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="18" width="194" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="554fbea8-6505-430e-9acb-f621d41d13b6"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Primer apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="388" y="18" width="194" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="c6c4174e-eb2c-4512-9441-4a5bfde9eff9"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre(s)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="194" y="18" width="194" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="a16d2a70-4bd2-461e-86ad-3c08d673444f"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segundo apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="0" width="582" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="7d3ee55e-3c16-4bd2-b973-0d6315bb4912"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Director o equivalente, Secretario Técnico del Consejo Escolar de Participación Social ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="388" y="0" width="194" height="20" uuid="e4e35cf6-03ab-4a50-9aec-d742284fede4"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="194" height="20" uuid="d0f13bdc-ebaf-4cb3-b408-60174674fcd0"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{PRIMERAPELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="0" width="194" height="20" uuid="840ab8ff-3de8-45b4-b531-0c7e053ad9c7"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{SEGUNDOAPELLIDO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

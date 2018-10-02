@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repTerceraSesion" pageWidth="612" pageHeight="792" columnWidth="582" leftMargin="15" rightMargin="15" topMargin="20" bottomMargin="20" uuid="14ca542c-cf88-4f23-bfb1-c46448d44c1b">
+	<property name="ireport.zoom" value="0.8630678035982761"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="2482"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="terceraQA"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\luis.mendoza\\Documents\\reportesREPASEv2\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pRuta" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:/Users/juan.floresr/REPUCE18/repuceps/repuce-web/src/main/webapp"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<parameter name="numero_sesion" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT
+	ct.CCT
+	, pr.ID_PRINCIPAL
+	, NVL(TO_CHAR(ac.HORA_FINAL, 'HH24:mi'), '-----') AS horaFinal
+	, pr.ID_TURNO
+FROM TRE005_IG_P_S pr
+	INNER JOIN SIGED.CT ct ON (ct.ID_CT = pr.ID_CT)
+	INNER JOIN TRE058_ACTA_SESION ac ON (pr.ID_PRINCIPAL = ac.ID_PRINCIPAL)
+WHERE pr.ID_PRINCIPAL = $P{id_principal}
+	AND ac.NUMERO_SESION = $P{numero_sesion}]]>
+	</queryString>
+	<field name="CCT" class="java.lang.String"/>
+	<field name="ID_PRINCIPAL" class="java.math.BigDecimal"/>
+	<field name="HORAFINAL" class="java.lang.String"/>
+	<field name="ID_TURNO" class="java.math.BigDecimal"/>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<image onErrorType="Blank">
+				<reportElement key="image-1" x="0" y="0" width="208" height="54" uuid="4a3a2dbe-89d1-40b3-8b25-161f0a38c293">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression><![CDATA[$P{pRuta}+"/static/images/logo_sep1.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="330" y="0" width="252" height="54" uuid="b5cf55a3-3fe3-419a-95a6-81165859110a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[ACTA DE LA PRIMERA SESIÓN DEL CONSEJO ESCOLAR DE PARTICIPACIÓN SOCIAL EN LA EDUCACIÓN
+CICLO 2018-2019
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="652" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="652" uuid="4c94ede6-8fcd-4670-af43-9e4edad67565"/>
+				<subreportParameter name="id_turno">
+					<subreportParameterExpression><![CDATA[$F{ID_TURNO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$F{ID_PRINCIPAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subRepDatosGenerales.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="123">
+			<staticText>
+				<reportElement x="0" y="38" width="582" height="42" uuid="0dece933-0c03-4d9f-941d-e1d848aa5f6b"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[1.   Una vez que ha quedado instalada la sesión conforme a la lista de asistencia que se anexa a la presente acta y que forma parte integrante de la misma, se procede al desahogo del orden del día ----------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="582" height="38" uuid="d3081d98-ecfa-4aa0-97e0-839c90875591"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[En votación económica se preguntó a los presentes si aprobaban el orden del día y por mayoría de votos de los asistentes, fue aprobado.-------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="582" height="43" uuid="a82faa40-86e8-4ee3-93de-9b1a792b1fe6"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[2.   Los integrantes de la sesión procedieron a la elección de los Consejeros que integrarán el Consejo Escolar de Participación Social en la Educación (aprobados por mayoría):-----------------------------------------------]]></text>
+			</staticText>
+		</band>
+		<band height="166">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="166" isRemoveLineWhenBlank="true" uuid="ee17cf4e-4da2-41c0-8161-099599f7615c"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$F{ID_PRINCIPAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="225">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="225" isRemoveLineWhenBlank="true" uuid="d62ca6da-c1a5-4d47-a891-0e639f1c3a51"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$F{ID_PRINCIPAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto3.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="60">
+			<staticText>
+				<reportElement x="0" y="5" width="582" height="55" uuid="d712e9fe-2f60-4595-978c-1b0bfafb7d7f"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[4.  En caso de que se haya tomado el acuerdo de designar a un Secretario Técnico, se procede a nombrar al director de la escuela o, según la estructura ocupacional autorizada, el subdirector que tenga encomendada la tarea de apoyar la organización y operación de la misma: -------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+		<band height="56">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="56" isRemoveLineWhenBlank="true" uuid="a4cfe4bd-c5ab-4e14-a951-1d65714e6925"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$F{ID_PRINCIPAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="3" width="582" height="47" uuid="72da7fb3-c040-4753-be2f-7c4c7986acc4"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[5. Siguiendo el orden del día establecido, se procede a conocer los programas federales, estatales, municipales y de organizaciones de la sociedad civil; a los que, en su caso, la escuela se haya incorporado.-------------------------]]></text>
+			</staticText>
+		</band>
+		<band height="475">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="475" isRemoveLineWhenBlank="true" uuid="036370b0-4cce-446f-8c9c-b221059753b5"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$F{ID_PRINCIPAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportePFederales.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="150">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="150" isRemoveLineWhenBlank="true" uuid="9133eb27-a726-4f26-a7af-a079d0137536"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$F{ID_PRINCIPAL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPEstatales.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="150">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="150" isRemoveLineWhenBlank="true" uuid="b1975763-98b3-4c97-9bf4-454dbbcae26b"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPMunicipales.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="150">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="150" isRemoveLineWhenBlank="true" uuid="7d50b9ea-29b6-46f7-bb4d-c85f7e93a89c"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPosc.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="3" width="582" height="47" uuid="0d0ec5a9-7e05-42ec-ad4e-44df0ca5a5e7"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[6.   Continuando con el orden del día, el director (a) de la escuela o quien ejerce la función directiva presenta la ruta de mejora del centro escolar para el periodo 2018-2019. ------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+		<band height="83">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="83" isRemoveLineWhenBlank="true" uuid="b4ee1b06-25f3-44bb-ba29-49b5bb953641"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto6.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="3" width="582" height="47" uuid="96968257-1ad6-4f20-8e10-4465e7da6ab1"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[7.   En deshago del orden del día, el director (a) de la escuela o quien ejerce la función directiva, da a conocer al Consejo Escolar de Participación Social, el calendario escolar, presentación de la plantilla de personal y la normalidad mínima que deberá cumplir el centro escolar, en el siguiente orden: ------------------------------------------]]></text>
+			</staticText>
+		</band>
+		<band height="120">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="120" isRemoveLineWhenBlank="true" uuid="48e00218-0aca-4aed-8486-66be2cdc878c"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto7a.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="83">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="83" isRemoveLineWhenBlank="true" uuid="496fead8-26d3-46dd-a180-af6ab695da9e"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportePunto7b.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="3" width="582" height="47" uuid="6400ffbd-ea43-4e61-86d8-2c46ed2f8dba"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[8.   Procediendo con el orden del día, en su caso, los integrantes del Consejo Escolar de Participación Social, determinaron constituir los comités para la atención y seguimiento de temas o programas específicos, siguientes:----]]></text>
+			</staticText>
+		</band>
+		<band height="280">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="280" isRemoveLineWhenBlank="true" uuid="5e43e8c9-bd8a-4c27-a2e4-ad21dfed6c6f"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto8.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="71">
+			<subreport>
+				<reportElement x="0" y="7" width="582" height="64" isRemoveLineWhenBlank="true" uuid="917177be-a88d-413e-84ab-4de966c211f3"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto8b.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="0" y="18" width="582" height="32" uuid="665b12d5-e53a-440c-9cc9-8784d4f54a90"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[9.  Finalmente, se procede a desahogar la existencia de asuntos generales y acuerdos aprobados.------------------]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="0" y="0" width="582" height="100" isRemoveLineWhenBlank="true" uuid="93e13eea-5123-473e-87eb-ed09a0f269ce"/>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="numero_sesion">
+					<subreportParameterExpression><![CDATA[$P{numero_sesion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto9.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="105">
+			<textField>
+				<reportElement x="0" y="5" width="582" height="100" uuid="fc20ff59-4f64-4196-86f6-5e6b78217368"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No habiendo otro asunto que tratar, se declara terminada la primera sesión, de planeación anual del Consejo Escolar de Participación Social, siendo las " + $F{HORAFINAL}
++ " horas del mismo día y año de su inicio y se levanta la presente acta, misma que deberá ser inscrita en el Registro Público de los Consejos de Participación Social en la Educación, firmando al margen y al calce el Presidente del Consejo Escolar de Participación Social, en su caso, el Secretario Técnico del Consejo Escolar de Participación Social, o quien ejerce la función directiva y los integrantes del consejo.-------------"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="75">
+			<subreport>
+				<reportElement x="0" y="5" width="582" height="70" isRemoveLineWhenBlank="true" uuid="689d0db5-286c-4176-901c-5b72571d755b"/>
+				<subreportParameter name="id_principal">
+					<subreportParameterExpression><![CDATA[$P{id_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PATH_JASPER">
+					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{PATH_JASPER} + "finalconsejeros2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="80">
+			<staticText>
+				<reportElement x="0" y="0" width="582" height="80" uuid="a0891c4e-a74a-4e14-9d33-53dd89abc83f"/>
+				<textElement textAlignment="Justified">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Los datos personales se encuentran protegidos conforme a la Ley General de Transparencia y Acceso a la Información Pública (LGTAIP), publicada en el DOF el 4 de mayo de 2015; la Ley Federal de Transparencia y Acceso a la Información Pública (LFTAIP), publicada en el DOF el 9 de mayo de 2016; la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados (LGPDPPSO), publicada en el Diario Oficial de la Federación el 26 de enero de 2017, y demás normativa aplicable.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement key="textField-56" mode="Transparent" x="0" y="9" width="209" height="16" isRemoveLineWhenBlank="true" uuid="94b86289-b576-47fd-b60c-1cbf23ca7d79"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-57" mode="Transparent" x="376" y="9" width="170" height="16" isRemoveLineWhenBlank="true" uuid="eb855a6a-a85d-4b7d-ba0f-3fab412fa20c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-58" mode="Opaque" x="546" y="9" width="36" height="16" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="8d44c46f-3511-4503-8acd-bc7d97e9f6f1"/>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

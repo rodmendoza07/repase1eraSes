@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportPunto1" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="284bd8b7-a07f-4d11-9418-9b4878c412ac">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT
+	NVL(c.CURP, '-----') AS CURP
+	, NVL(c.PRIMER_APELLIDO, '-----') AS PRIMER_APELLIDO
+	, NVL(c.SEGUNDO_APELLIDO, '-----') AS SEGUNDO_APELLIDO
+	, NVL(c.NOMBRE, '-----') AS NOMBRE
+	, NVL(ca.CARGO, '-----') AS CARGO
+	, NVL(ac.FORMA_ACREDITACION, '-----') AS formaAcreditacion
+	, NVL(cc.CALIDAD_CONSEJERO, '-----') AS calidadConsejero
+	, NVL(c.CORREO,'-----') AS CORREO
+	, NVL(TO_CHAR(c.TELEFONO),'-----') AS TELEFONO
+	, NVL(ce.ESCOLARIDAD, '-----') AS escolaridad
+	, CASE
+		WHEN c.GENERO = 1 THEN 'Masculino'
+		WHEN c.GENERO = 2 THEN 'Femenino'
+		ELSE '-----'
+	END AS GENERO
+	, NVL(cg.GRADO, '-----') AS hijoGrado
+FROM TRE007_CONSEJEROS c
+	INNER JOIN TRE009_CAT_CARGOS ca ON (c.ID_CARGO = ca.ID_CARGO)
+	INNER JOIN TRE010_CAT_FORMAS_ACREDITACION ac ON (c.ID_FORMA_ACREDITACION = ac.ID_FORMA_ACREDITACION)
+	INNER JOIN TRE011_CAT_CALIDADES_CONSEJERO cc ON (c.ID_CALIDAD_CONSEJERO = cc.ID_CALIDAD_CONSEJERO)
+	INNER JOIN TRE012_CAT_ESCOLARIDADES ce ON (c.ID_ESCOLARIDAD = ce.ID_ESCOLARIDAD)
+	LEFT JOIN TRE006_CAT_GRADOS cg ON (c.ID_GRADO = cg.ID_GRADO)
+WHERE c.ID_PRINCIPAL = $P{id_principal}
+	ORDER BY ca.ID_CARGO DESC]]>
+	</queryString>
+	<field name="CURP" class="java.lang.String"/>
+	<field name="PRIMER_APELLIDO" class="java.lang.String"/>
+	<field name="SEGUNDO_APELLIDO" class="java.lang.String"/>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="CARGO" class="java.lang.String"/>
+	<field name="FORMAACREDITACION" class="java.lang.String"/>
+	<field name="CALIDADCONSEJERO" class="java.lang.String"/>
+	<field name="CORREO" class="java.lang.String"/>
+	<field name="TELEFONO" class="java.lang.String"/>
+	<field name="ESCOLARIDAD" class="java.lang.String"/>
+	<field name="GENERO" class="java.lang.String"/>
+	<field name="HIJOGRADO" class="java.lang.String"/>
+	<columnHeader>
+		<band height="146">
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="0" width="582" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="c79d1f6b-53bb-48d0-a5f9-e9dd2f4efee7"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INTEGRANTES DEL CONSEJO ESCOLAR DE PARTICIPACIÓN SOCIAL EN LA EDUCACIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="cd22acf3-b707-466f-a500-0ef9610fa337"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CURP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="40" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="ecf978dd-4ec2-4fc4-866e-23c8cfcae0f5"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Primer apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="80" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="a45d3924-c7eb-4d59-a8f2-897b7a5bbb6e"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Segundo apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="120" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="f922fda0-25ca-4492-8b6a-7937f2de1141"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="542" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="6ccda710-f669-41e1-ba01-07234f1ed014"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Los consejeros padres de familia, anotar el grado que cursa (n) su (s) hijo (s) inscrito (s) en el plantel escolar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="502" y="18" width="40" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="4ceba713-525a-4ba9-a78d-ca239a35b025"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Género
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="371" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="acacfff6-aa8b-49ee-bfb2-c86a13228c3c"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="331" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="2ff1707e-66f6-4324-8581-3c0c98c6684a"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Correo electrónico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="160" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="c1eb2747-62e4-492c-945a-97030abaf62c"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo en el consejo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="200" y="18" width="40" height="128" forecolor="#000000" backcolor="#CCCCCC" uuid="65386bc7-50b5-4b98-bc26-f0bf3d365ed3"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Forma de acreditación (acreditados por la autoridad escolar)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="240" y="18" width="91" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="1eb3b71b-d277-4b33-9d16-b49ff615cf15"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En calidad de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="240" y="36" width="91" height="110" forecolor="#000000" backcolor="#CCCCCC" uuid="06387b8d-beba-44a2-a9b0-4f597c947f4b"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1. Representante de la Asociación de Padres de Familia.
+2.Representante de asociación sindical
+3. Padre de familia
+4. Miembro de la comunidad
+5. Maestro.
+6. Exalumno
+7. Directivo de escuela.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="411" y="18" width="91" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="477dd7a0-448d-47a9-9ee5-a359507c7051"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Escolaridad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="411" y="36" width="91" height="110" forecolor="#000000" backcolor="#CCCCCC" uuid="7ca07221-18cc-49fd-a548-9ef0a641755d"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1. No sabe leer ni escribir
+2. Primaria sin concluir
+3. Primaria terminada
+4. Secundaria sin concluir
+5. Secundaria terminada.
+6. Bachillerato o carrera técnica o comercial
+7 Licenciatura
+8. Posgrado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="502" y="36" width="40" height="110" forecolor="#000000" backcolor="#CCCCCC" uuid="45cbb3fa-5610-4e38-847a-356bbd2a67dc"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Masculino
+Femenino]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="40" height="20" uuid="02398741-54a2-429c-8da5-b6f3646f41c3"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CURP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="40" height="20" uuid="7baf980e-83aa-4c9d-a70a-2d382769d711"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRIMER_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="40" height="20" uuid="d457b6f3-479b-4e50-8b4f-269fadbbe957"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SEGUNDO_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="40" height="20" uuid="43c23905-5edd-46de-bbb3-c31b37b58367"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="40" height="20" uuid="3f566061-3172-4bca-a049-3f51efe4e7f0"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CARGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="40" height="20" uuid="94b439ea-7021-4be7-b946-0008304734c0"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FORMAACREDITACION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="91" height="20" uuid="5a55eb20-5ff7-440c-8c77-67b10297b437"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CALIDADCONSEJERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="0" width="40" height="20" uuid="67606aa8-3fa7-494d-9d25-c30515e98b37"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="0" width="40" height="20" uuid="e9cc56b6-04db-4703-939e-237b1e67242b"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="91" height="20" uuid="fc8c8703-fd5c-4993-a363-9baab299a13a"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ESCOLARIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="0" width="40" height="20" uuid="d67d5ebe-998a-4b15-8ccb-86387cf4a1b0"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GENERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="542" y="0" width="40" height="20" uuid="47684d6e-04ec-4a46-83c2-21ab44bd0e17"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HIJOGRADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

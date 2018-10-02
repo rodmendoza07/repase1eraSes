@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="finalconsejeros2" columnCount="2" printOrder="Horizontal" pageWidth="612" pageHeight="792" columnWidth="306" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="d2960a82-eda5-475f-82eb-c7f81ea5e10c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="terceraQA"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	ic.NOMBRE || ' ' ||ic.PRIMER_APELLIDO || ' ' || ic.SEGUNDO_APELLIDO AS NOMBRE
+ 	, cc.CARGO as CALIDAD_INTEGRANTE
+FROM TRE007_CONSEJEROS ic
+	INNER JOIN TRE005_IG_P_S pr ON (ic.ID_PRINCIPAL = pr.ID_PRINCIPAL)
+	INNER JOIN TRE009_CAT_CARGOS cc ON (ic.ID_CARGO = cc.ID_CARGO)
+WHERE pr.ID_PRINCIPAL = $P{id_principal}
+	ORDER BY cc.ID_CARGO DESC]]>
+	</queryString>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="CALIDAD_INTEGRANTE" class="java.lang.String"/>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="260" height="70" isPrintWhenDetailOverflows="true" uuid="ff4dbfa8-5bd3-4c53-a86d-a473f2000330"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE} + "\n"
++ "____________________________________\n"
++ $F{CALIDAD_INTEGRANTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

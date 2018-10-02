@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportF1" pageWidth="234" pageHeight="652" columnWidth="234" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d0cb9c1c-6239-4867-a668-7072149250e0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_principal" class="java.lang.String"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_programa" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	NVL(co.OBJETIVO, '-----') AS OBJETIVO
+	, NVL(op.META, '-----') AS meta
+FROM TRE016_OBJETIVOS_PROGRAMAS op
+	INNER JOIN TRE017_CAT_OBJETIVOS co  ON (op.ID_OBJETIVO = co.ID_OBJETIVO)
+	INNER JOIN TRE015_CAT_TIPOS_PROGRAMAS tp ON (tp.ID_TIPO_PROGRAMA = 0)
+WHERE op.ID_PRINCIPAL = $P{id_principal}
+	AND op.ID_PROGRAMA = $P{id_programa}]]>
+	</queryString>
+	<field name="OBJETIVO" class="java.lang.String"/>
+	<field name="META" class="java.lang.String"/>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement x="0" y="0" width="116" height="66" uuid="1d7d7ed7-487c-4bfb-a500-324315871c37"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OBJETIVO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="118" height="66" uuid="d73f566f-1cc6-4bf2-b32a-f0cb2732d547"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{META}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

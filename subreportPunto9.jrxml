@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportPunto9" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="02a17b14-7923-4ff0-a3b6-0dc84f8bdd51">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PATH_JASPER" class="java.lang.String"/>
+	<parameter name="id_principal" class="java.math.BigDecimal"/>
+	<parameter name="numero_sesion" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[SELECT
+	NVL(aa.ASUNTO_GENERAL, '-----') AS ASUNTO_GENERAL
+	, NVL(aa.ACUERDO_APROBADO, '-----') AS ACUERDO_APROBADO
+FROM TRE027_ASUNTOS_ACTA aa
+WHERE aa.ID_PRINCIPAL = $P{id_principal}
+	AND aa.NUMERO_SESION = $P{numero_sesion}]]>
+	</queryString>
+	<field name="ASUNTO_GENERAL" class="java.lang.String"/>
+	<field name="ACUERDO_APROBADO" class="java.lang.String"/>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="0" width="291" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="09c779a6-6f36-4132-b158-6bc7751b180a"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASUNTOS GENERALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="291" y="0" width="291" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="68ca23d5-922a-4bbb-9197-387f3b00d571"/>
+				<box>
+					<topPen lineWidth="0.75" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACUERDOS APROBADOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="291" height="80" uuid="11a96226-c40d-420e-bb03-214c3eb35989"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ASUNTO_GENERAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="0" width="291" height="80" uuid="c1365189-3680-4c46-a7d2-2dcb2a84e9de"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ACUERDO_APROBADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
