@@ -19,8 +19,8 @@
 	, NVL(TO_CHAR(c.TELEFONO),'-----') AS TELEFONO
 	, NVL(ce.ESCOLARIDAD, '-----') AS escolaridad
 	, CASE
-		WHEN c.GENERO = 1 THEN 'Masculino'
-		WHEN c.GENERO = 2 THEN 'Femenino'
+		WHEN c.GENERO = 1 THEN 'Femenino'
+		WHEN c.GENERO = 2 THEN 'Masculino'
 		ELSE '-----'
 	END AS GENERO
 	, NVL(cg.GRADO, '-----') AS hijoGrado
