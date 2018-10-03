@@ -18,9 +18,9 @@ WHERE ic.ID_PRINCIPAL = $P{id_principal}
 	<field name="NOMBRE" class="java.lang.String"/>
 	<field name="CARGO" class="java.lang.String"/>
 	<detail>
-		<band height="13" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="146" height="13" uuid="150874bc-0c03-4b5f-9cf1-34d2723997a9"/>
+				<reportElement x="0" y="0" width="146" height="20" uuid="150874bc-0c03-4b5f-9cf1-34d2723997a9"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
