@@ -27,7 +27,7 @@ WHERE op.ID_PRINCIPAL = $P{id_principal}
 					<topPen lineWidth="0.75"/>
 					<leftPen lineWidth="0.75"/>
 					<bottomPen lineWidth="0.75"/>
-					<rightPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement>
 					<font size="6"/>
@@ -39,7 +39,7 @@ WHERE op.ID_PRINCIPAL = $P{id_principal}
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
-					<leftPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
 					<bottomPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>

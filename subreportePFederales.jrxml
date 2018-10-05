@@ -176,6 +176,9 @@ WHERE p.ID_TIPO_PROGRAMA = 0
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportF1.jasper"]]></subreportExpression>
 			</subreport>
+			<line>
+				<reportElement x="348" y="0" width="1" height="328" uuid="848f3244-14ef-4c46-b798-00ec34a1366e"/>
+			</line>
 		</band>
 	</detail>
 </jasperReport>
