@@ -259,7 +259,7 @@ WHERE pr.ID_PRINCIPAL = $P{id_principal}
 +" del año " + $F{ANIOREALIZACION} +", a convocatoria del C. Director (a) de la escuela o quien desempeña la función directiva, publicada en " + $F{LUGARPUBLICACION} +" con fecha " + $F{FECHAPUBLICACION}
 +", se reunieron en las instalaciones de este centro escolar los miembros de la comunidad educativa (se anexa la lista de asistencia), con la que se acredita la presencia de " + $F{ASISTENTES}
 +" integrantes de la comunidad educativa, para llevar a cabo la constitución y/o celebrar la primera sesión de planeación anual del Consejo Escolar de Participación Social en la Educación.--------------------------"
-+ "En caso de constitución, se elegirá por mayoría de votos de entre sus miembros, a un padre o madre de familia como Consejero Presidente y, en su caso, la designación del Director (a) de la escuela o quien desempeña la función directiva como Secretario Técnico, para el periodo: 2018-2020-------------------------------------------------------"]]></textFieldExpression>
++ "En caso de constitución, se elegirá por mayoría de votos de entre sus miembros, a un padre o madre de familia como Consejero Presidente y, en su caso, la designación del Director (a) de la escuela o quien desempeña la función directiva como Secretario Técnico, para el periodo: 2018-2019-------------------------------------------------------"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="311" width="582" height="45" uuid="d67778a1-8613-464e-9e2b-5fe3a7b190a1"/>

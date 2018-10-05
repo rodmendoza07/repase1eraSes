@@ -70,18 +70,16 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 				<text><![CDATA[N° DE INTEGRANTES DEL COMITÉ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="291" y="0" width="146" height="190" forecolor="#000000" backcolor="#CCCCCC" uuid="7ece68c3-cdc6-4fc6-bf20-8717d52feb65"/>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="291" y="25" width="146" height="165" forecolor="#000000" backcolor="#CCCCCC" uuid="7ece68c3-cdc6-4fc6-bf20-8717d52feb65"/>
 				<box>
-					<topPen lineWidth="0.75" lineColor="#000000"/>
 					<leftPen lineWidth="0.75" lineColor="#000000"/>
 					<bottomPen lineWidth="0.75" lineColor="#000000"/>
 					<rightPen lineWidth="0.75" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[NOMBRE Y CALIDAD DEL PRESIDENTE DEL COMITÉ
-1. Presidente del Consejo Escolar de Participación Social.
+				<text><![CDATA[1. Presidente del Consejo Escolar de Participación Social.
 2. Secretario Técnico del Consejo Escolar.
 3. Consejera madre de familia.
 4. Consejero padre de familia.
@@ -105,6 +103,19 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 					<font fontName="SansSerif" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[1.	Presentaron programa de actividades. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="291" y="0" width="146" height="25" forecolor="#000000" backcolor="#CCCCCC" uuid="c0fe3e42-8f74-4854-ba1a-4d4d4c249599"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE Y CALIDAD DEL PRESIDENTE DEL COMITÉ
+]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
