@@ -9,9 +9,9 @@
 	<queryString>
 		<![CDATA[SELECT
 	NVL(ic.NOMBRE, '-----') AS NOMBRE
-	, nvl(cc.CARGO, '-----') AS cargo
+	, nvl(cc.CALIDAD_PRESIDENTE, '-----') AS cargo
 FROM TRE025_INTEGRANTES_COMITE ic
-	LEFT JOIN TRE009_CAT_CARGOS cc ON (ic.ID_CALIDAD_INTEGRANTE = cc.ID_CARGO)
+	LEFT JOIN TRE024_CAT_CALIDADES_PRESIDENT cc ON (ic.ID_CALIDAD_INTEGRANTE = cc.ID_CALIDAD_PRESIDENTE)
 WHERE ic.ID_PRINCIPAL = $P{id_principal}
 	AND ic.ID_COMITE = $P{id_comite}]]>
 	</queryString>
