@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repTerceraSesion" pageWidth="612" pageHeight="792" columnWidth="582" leftMargin="15" rightMargin="15" topMargin="20" bottomMargin="20" uuid="14ca542c-cf88-4f23-bfb1-c46448d44c1b">
 	<property name="ireport.zoom" value="0.8630678035982761"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2482"/>
+	<property name="ireport.y" value="2288"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="terceraQA"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\luis.mendoza\\Documents\\reportesREPASEv2\\"]]></defaultValueExpression>
@@ -272,9 +272,9 @@ CICLO 2018-2019
 				<text><![CDATA[8.   Procediendo con el orden del día, en su caso, los integrantes del Consejo Escolar de Participación Social, determinaron constituir los comités para la atención y seguimiento de temas o programas específicos, siguientes:----]]></text>
 			</staticText>
 		</band>
-		<band height="280">
+		<band height="372">
 			<subreport>
-				<reportElement x="0" y="0" width="582" height="280" isRemoveLineWhenBlank="true" uuid="5e43e8c9-bd8a-4c27-a2e4-ad21dfed6c6f"/>
+				<reportElement x="0" y="0" width="582" height="371" isRemoveLineWhenBlank="true" uuid="5e43e8c9-bd8a-4c27-a2e4-ad21dfed6c6f"/>
 				<subreportParameter name="PATH_JASPER">
 					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
 				</subreportParameter>
