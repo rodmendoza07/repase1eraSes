@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRepDatosGenerales" pageWidth="582" pageHeight="652" columnWidth="582" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ddc08dc6-d55b-4bf9-994b-fdb4e09f3120">
 	<property name="ireport.zoom" value="1.3310000000000004"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.y" value="335"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="PATH_JASPER" class="java.lang.String"/>
 	<parameter name="id_principal" class="java.math.BigDecimal"/>
@@ -63,7 +63,7 @@ WHERE pr.ID_PRINCIPAL = $P{id_principal}
 	<field name="NIVELESCOLAR" class="java.lang.String"/>
 	<field name="ASISTENTES" class="java.lang.String"/>
 	<detail>
-		<band height="652" splitType="Stretch">
+		<band height="651" splitType="Stretch">
 			<staticText>
 				<reportElement key="staticText-68" positionType="Float" mode="Opaque" x="0" y="0" width="582" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="e56b51a4-e518-4698-ad56-0324352e0af5"/>
 				<box>
@@ -259,7 +259,7 @@ WHERE pr.ID_PRINCIPAL = $P{id_principal}
 +" del año " + $F{ANIOREALIZACION} +", a convocatoria del C. Director (a) de la escuela o quien desempeña la función directiva, publicada en " + $F{LUGARPUBLICACION} +" con fecha " + $F{FECHAPUBLICACION}
 +", se reunieron en las instalaciones de este centro escolar los miembros de la comunidad educativa (se anexa la lista de asistencia), con la que se acredita la presencia de " + $F{ASISTENTES}
 +" integrantes de la comunidad educativa, para llevar a cabo la constitución y/o celebrar la primera sesión de planeación anual del Consejo Escolar de Participación Social en la Educación.--------------------------"
-+ "En caso de constitución, se elegirá por mayoría de votos de entre sus miembros, a un padre o madre de familia como Consejero Presidente y, en su caso, la designación del Director (a) de la escuela o quien desempeña la función directiva como Secretario Técnico, para el periodo: 2018-2019-------------------------------------------------------------------------------"]]></textFieldExpression>
++ "En caso de constitución, se elegirá por mayoría de votos de entre sus miembros, a un padre o madre de familia como Consejero Presidente y, en su caso, la designación del Director (a) de la escuela o quien desempeña la función directiva como Secretario Técnico, para el periodo: 2018-2019---------------------------"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="302" width="582" height="45" uuid="d67778a1-8613-464e-9e2b-5fe3a7b190a1"/>
@@ -276,62 +276,61 @@ WHERE pr.ID_PRINCIPAL = $P{id_principal}
 				<text><![CDATA[1.  Instalación de la Sesión;------------------------------------------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="386" width="582" height="20" uuid="97c125e0-c72b-4ef7-b703-9a6336303efe"/>
+				<reportElement x="0" y="375" width="582" height="38" uuid="97c125e0-c72b-4ef7-b703-9a6336303efe"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[2.  Elección de los Consejeros;--------------------------------------------------------------------------]]></text>
+				<text><![CDATA[2.  Elección de los Consejeros;-------------------------------------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="413" width="582" height="19" uuid="100357c4-b949-4271-8e73-3429791d95dc"/>
+				<reportElement x="0" y="405" width="582" height="26" uuid="100357c4-b949-4271-8e73-3429791d95dc"/>
 				<textElement textAlignment="Justified">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[3.  Elección del Presidente del Consejo Escolar de Participación Social en la Educación para el ciclo escolar 2018-2020;]]></text>
+				<text><![CDATA[3.  Elección del Presidente del Consejo Escolar de Participación Social en la Educación para el ciclo escolar 2018-2020;--------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="497" width="582" height="33" uuid="27b1eabe-3177-4be0-934f-9a630e834a19"/>
+				<reportElement x="0" y="498" width="582" height="50" uuid="27b1eabe-3177-4be0-934f-9a630e834a19"/>
 				<textElement textAlignment="Justified">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[6.  Presentación por parte del director (a) de la escuela o quien ejerce la función directiva, de la ruta de mejora del centro escolar para el periodo 2018-2019;----------------------------------------------------------------]]></text>
+				<text><![CDATA[6.  Presentación por parte del director (a) de la escuela o quien ejerce la función directiva, de la ruta de mejora del centro escolar para el periodo 2018-2019;----------------------------------------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="436" width="582" height="20" uuid="d99761e8-d1c3-42c4-a2b1-c7fa97b254b1"/>
+				<reportElement x="0" y="430" width="582" height="37" uuid="d99761e8-d1c3-42c4-a2b1-c7fa97b254b1"/>
 				<textElement textAlignment="Justified">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[4.   Designación, en su caso, del Secretario Técnico;--------------------------------------------------------
-]]></text>
+				<text><![CDATA[4.   Designación, en su caso, del Secretario Técnico;--------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="459" width="582" height="33" uuid="4f297db0-9289-4c34-bf5e-e472dcbb5d88"/>
+				<reportElement x="0" y="461" width="582" height="49" uuid="4f297db0-9289-4c34-bf5e-e472dcbb5d88"/>
 				<textElement textAlignment="Justified">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[5.  Propuesta de incorporación, en su caso, de la escuela a los Programas federales, estatales, municipales y de Organizaciones de la Sociedad Civil;----------------------------------------------------------------------]]></text>
+				<text><![CDATA[5.  Propuesta de incorporación, en su caso, de la escuela a los Programas federales, estatales, municipales y de Organizaciones de la Sociedad Civil;---------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="534" width="582" height="33" uuid="fa0c808a-8f46-4d57-a745-30a6623dd288"/>
+				<reportElement x="0" y="534" width="582" height="38" uuid="fa0c808a-8f46-4d57-a745-30a6623dd288"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[7.  Presentación del director (a) de la escuela o quien ejerce la función directiva al Consejo Escolar de Participación Social, del calendario escolar y la normalidad mínima que deberá cumplir el centro escolar;------------------------]]></text>
+				<text><![CDATA[7.  Presentación del director (a) de la escuela o quien ejerce la función directiva al Consejo Escolar de Participación Social, del calendario escolar y la normalidad mínima que deberá cumplir el centro escolar;--------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="572" width="582" height="29" uuid="8ebbfdd8-6170-414e-a84b-487cb31ad925"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[8.  Conformación de comités que aborden temas prioritarios para la atención y seguimiento de temas o programas específicos, y;----------------------------------------------------------------------------------------]]></text>
+				<text><![CDATA[8.  Conformación de comités que aborden temas prioritarios para la atención y seguimiento de temas o programas específicos, y;--]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="608" width="582" height="20" uuid="dbb04d29-32e3-43f9-91bb-a6b9136981e2"/>
-				<text><![CDATA[9.  Asuntos generales y acuerdos aprobados. ;-------------------------------------------------------------]]></text>
+				<reportElement x="0" y="600" width="582" height="41" uuid="dbb04d29-32e3-43f9-91bb-a6b9136981e2"/>
+				<text><![CDATA[9.  Asuntos generales y acuerdos aprobados. ;----------------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="631" width="582" height="20" uuid="a2914e2f-e995-4f55-9e5b-98d919ef3fcb"/>
-				<text><![CDATA[Por mayoría de votos el orden del día fue aprobado. -------------------------------------------------------]]></text>
+				<reportElement x="0" y="615" width="582" height="36" uuid="a2914e2f-e995-4f55-9e5b-98d919ef3fcb"/>
+				<text><![CDATA[Por mayoría de votos el orden del día fue aprobado. --------------------------------------------------------------------------------------------------------]]></text>
 			</staticText>
 		</band>
 	</detail>

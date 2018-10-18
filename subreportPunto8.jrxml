@@ -120,9 +120,9 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="91">
+		<band height="181">
 			<textField>
-				<reportElement x="0" y="0" width="145" height="90" uuid="6d4119c3-2a7f-4f5b-b26b-97d235283319"/>
+				<reportElement x="0" y="0" width="145" height="180" uuid="6d4119c3-2a7f-4f5b-b26b-97d235283319"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -133,7 +133,7 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 				<textFieldExpression><![CDATA[$F{COMITE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="437" y="0" width="145" height="90" uuid="34ff07ca-b5d9-411d-a9c6-7b4c58567d85"/>
+				<reportElement x="437" y="0" width="145" height="180" uuid="34ff07ca-b5d9-411d-a9c6-7b4c58567d85"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -145,7 +145,7 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 				<textFieldExpression><![CDATA[$F{PRESENTARON_PROGRAMA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="145" y="0" width="146" height="90" uuid="5afe4df7-52be-4b20-94c3-efcaee19f5af"/>
+				<reportElement x="145" y="0" width="146" height="180" uuid="5afe4df7-52be-4b20-94c3-efcaee19f5af"/>
 				<box>
 					<pen lineWidth="0.75"/>
 					<topPen lineWidth="0.75"/>
@@ -157,7 +157,7 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 				<textFieldExpression><![CDATA[$F{NUM_INTEGRANTES}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="291" y="0" width="146" height="90" uuid="338516b6-4bb8-4528-9a3d-e5e925c3e4a8"/>
+				<reportElement x="291" y="0" width="146" height="180" uuid="338516b6-4bb8-4528-9a3d-e5e925c3e4a8"/>
 				<subreportParameter name="PATH_JASPER">
 					<subreportParameterExpression><![CDATA[$P{PATH_JASPER}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -171,7 +171,7 @@ WHERE c.ID_PRINCIPAL = $P{id_principal}]]>
 				<subreportExpression><![CDATA[$P{PATH_JASPER} + "subreportPunto8c.jasper"]]></subreportExpression>
 			</subreport>
 			<line>
-				<reportElement x="291" y="90" width="146" height="1" uuid="31ceac36-d7a9-4148-b00b-651ac5245a95"/>
+				<reportElement x="291" y="180" width="146" height="1" uuid="31ceac36-d7a9-4148-b00b-651ac5245a95"/>
 			</line>
 		</band>
 	</detail>
